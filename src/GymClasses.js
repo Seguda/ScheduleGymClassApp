@@ -10,7 +10,7 @@ export default class GymClasses extends Component {
     return(
      
         <ScrollView style={{ flex: 1 }}>
-            <View style={{ height: 1000 }}>
+            <View style={{ height: 400 }}>
                 contentContainerStyle={styles.scrollContent}
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={true}
