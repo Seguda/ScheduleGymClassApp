@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component} from 'react';
 import {
     Dimensions,
     Image,
@@ -8,15 +8,16 @@ import {
     View
 } from 'react-native';
 import { defaultStyles } from './styles';
+import PropTypes from 'prop-types';
 
-
-// Get screen dimensions
 const { width, height } = Dimensions.get('window');
-// How many posters we want to have in each row and column
-const cols = 3, rows = 3;
+const cols = 2, rows = 2;
 
 export default class GymClassPoster extends Component {
-
+    static propTypes = {
+       gymclass: PropTypes.object.isRequired,
+        onOpen: PropTypes.func.isRequired,
+    }
     render() {
         const { gymclass, gymclass: { title, room, poster }, onOpen } = this.props;
         return (
@@ -35,15 +36,15 @@ const styles = StyleSheet.create({
     container: {
         marginLeft: 10,
         marginBottom: 10,
-        height: (height - 20 - 20) / rows - 10,
+        height: (height - 10) / rows - 60,
         width: (width - 10) / cols - 10,
     },
     imageContainer: {
-        flex: 1,                          // take up all available space
+        flex: 1,                          
     },
     image: {
-        borderRadius: 10,                 // rounded corners
-        ...StyleSheet.absoluteFillObject, // fill up all space in a container
+        borderRadius: 10,                 
+        ...StyleSheet.absoluteFillObject, 
     },
     key: {
         ...defaultStyles.text,
